@@ -12,16 +12,24 @@ function LunchCheckController($scope){
 
 
 $scope.getLunchMenu = function(){
+  var menu ='';
+  for (var j = 0; j < $scope.lunchmenu.length; j++){
+    if($scope.lunchmenu[j] != ' '){
+      menu += $scope.lunchmenu[j];
+    }
+  }
 
-var lunchmenu = $scope.lunchmenu.split(',');
+var lunchmenu = menu.split(',');
 var cleanedlunchmenu = [];
 
 
-for (var i = 0; i < lunchmenu.length; i++){
-  if (lunchmenu[i] != ''){
+for (var i = 0; i <= lunchmenu.length; i++){
+  if (lunchmenu[i] != '' && lunchmenu[i] != null && lunchmenu[i] != undefined){
     cleanedlunchmenu.push(lunchmenu[i]);
+    console.log(cleanedlunchmenu);
   }
-  $scope.lunch = cleanedlunchmenu;
+
+  $scope.lunch = lunchmenu;
 }
 
 
